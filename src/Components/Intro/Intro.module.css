@@ -1,0 +1,86 @@
+:root {
+    --purple-color: #6828ED;
+    --white-color: #FFFFFF;
+  }
+
+h2, button {
+    font-family: 'Roboto', sans-serif;
+}
+
+.descricao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+  }
+
+h2, p, .botoes {
+   padding-top: 10px;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    width: 90%;
+}
+
+h2 {
+    font-size: 33px; 
+    text-align: center;
+    width: 80%;
+}
+
+p {
+    font-size: 22px; 
+    width: 80%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+  }
+
+.containerimg {
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--white-color);
+    color: var(--purple-color);
+    margin-right: 20px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid var(--purple-color);
+    cursor: pointer;
+}
+
+.acessarbtn {
+    background-color: var(--purple-color);
+    color: var(--white-color);
+    justify-content: right;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 437px) {
+    .botoes {
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 24px;
+      }
+    
+      p {
+        font-size: 16px;
+      }
+}
