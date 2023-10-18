@@ -1,9 +1,3 @@
-:root {
-    --purple-color: #6828ED;
-    --green-color:#04E376;
-    --white-color: #FFFFFF;
-  }
-
 .container h2, button {
     font-family: 'Roboto', sans-serif;
 }
