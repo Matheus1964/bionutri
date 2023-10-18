@@ -1,5 +1,6 @@
 :root {
     --purple-color: #6828ED;
+    --green-color:#04E376;
     --white-color: #FFFFFF;
   }
 
@@ -14,8 +15,9 @@
     align-items: center;     
   }
 
-.container h2, p, .botoes {
+.container h2, p, .botao {
    padding-top: 10px;
+   font-family: 'Saira', sans-serif;
 }
 
 .container {
@@ -25,14 +27,18 @@
 }
 
 .container h2 {
-    font-size: 33px; 
+    font-size: 60px; 
+    color: var(--purple-color);
     text-align: center;
-    width: 80%;
 }
 
 .container p {
     font-size: 22px; 
-    width: 80%;
+}
+
+.p1 {
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .container img {
@@ -48,21 +54,17 @@
 
 .container button {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--white-color);
-    color: var(--purple-color);
-    margin-right: 20px;
-    margin-top: 10px;
-    text-align: center;
-    border-radius: 5px;
-    border: 2px solid var(--purple-color);
-    cursor: pointer;
-}
-
-.container .acessarbtn {
-    background-color: var(--purple-color);
+    padding: 15px 60px;
+    background-color: var(--green-color);
     color: var(--white-color);
-    justify-content: right;
+    margin-right: 40px;
+    margin-top: 20px;
+    text-align: center;
+    border-radius: 20px;
+    border: 2px solid var(--green-color);
+    cursor: pointer;
+    font-size: 20px;
+    
 }
 
 @media screen and (max-width: 768px) {
@@ -71,13 +73,19 @@
     }
 }
 
+@media screen and (max-width:551px){
+    .container h2 {
+        font-size: 45px;
+    }
+}
+
 @media screen and (max-width: 437px) {
-    .botoes {
+    .botao {
         text-align: center;
     }
 
     .container h2 {
-        font-size: 24px;
+        font-size: 40px;
       }
     
     .container p {
