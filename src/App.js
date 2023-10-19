@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import Footer from './Components/Footer/Footer';
+import FormIMC from './Components/FormIMC';
+import './Components/FormIMC/FormIMC.css'
 
 function App() {
   return (
@@ -18,7 +21,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <FormIMC/>
+      <Footer/>
     </div>
+    //
   );
 }
 
