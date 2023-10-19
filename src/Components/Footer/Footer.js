@@ -1,9 +1,9 @@
 import './Footer.css'
 
-import { ReactComponent as Youtube_logo } from '../../assets/youtube_icon.svg'
-import { ReactComponent as Facebook_logo } from '../../assets/fb_social_icon.svg'
-import { ReactComponent as Instagram_logo } from '../../assets/instagram_icon.svg'
-import { ReactComponent as Tiktok_logo } from '../../assets/tik_tok_icon.svg'
+import { ReactComponent as Youtube_logo } from '../../Assets/youtube_icon.svg'
+import { ReactComponent as Facebook_logo } from '../../Assets/fb_social_icon.svg'
+import { ReactComponent as Instagram_logo } from '../../Assets/instagram_icon.svg'
+import { ReactComponent as Tiktok_logo } from '../../Assets/tik_tok_icon.svg'
 
 const youtube_link = "https://www.youtube.com/"
 const facebook_link = "https://web.facebook.com/"
