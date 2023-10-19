@@ -8,7 +8,7 @@ function AppRoutes() {
 
     <Router>
         <Routes>
-          <Route path="/bio" element={<Home />} />
+          <Route path="/" element={<Home />} />
           
 
           
