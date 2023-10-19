@@ -1,9 +1,12 @@
 import Styles from "./Home.module.css"
+import About from "../../Components/About/index"
+
 
 function Home (){
   return (
     <div>
-      <h1 className={Styles.titulo}>teste</h1>
+
+      <About/>
     </div>
   )
 }

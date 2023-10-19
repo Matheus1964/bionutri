@@ -1,0 +1,47 @@
+.Container_About{
+  display: flex;
+  justify-content: center;
+
+  max-width: 100%;
+
+
+  font-family: 'Saira';
+  background-color: #05E279;
+}
+.About{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  margin-left: 10%;
+  
+}
+.About p{
+  width: 70%;
+
+  font-size: 20px;
+  
+}
+.About h1{
+  margin-bottom: 5rem;
+
+  font-size: 68px;
+}
+@media screen and (max-width: 1000px) {
+  .Container_About{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    max-width: 100%;
+  
+  }
+  .Container_About img{
+    margin-bottom: 50px;
+    width: 70%;
+  
+  }
+  
+
+}
