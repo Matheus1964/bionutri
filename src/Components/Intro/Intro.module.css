@@ -52,12 +52,33 @@
     border-radius: 5px;
     border: 2px solid var(--purple-color);
     cursor: pointer;
+    transition: background-color 0.3s; 
 }
 
 .container .acessarbtn {
     background-color: var(--purple-color);
     color: var(--white-color);
     justify-content: right;
+}
+
+.consultabtn:hover {
+    background-color: var(--purple-color); 
+    color: var(--white-color);
+}
+
+.consultabtn:active {
+    background-color: var(--white-color); 
+    color: var(--purple-color);
+}
+
+.acessarbtn:hover {
+    background-color: var(--white-color); 
+    color: var(--purple-color);
+}
+
+.acessarbtn:active {
+    background-color: var(--purple-color); 
+    color: var(--white-color);
 }
 
 @media screen and (max-width: 768px) {

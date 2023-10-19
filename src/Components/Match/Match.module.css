@@ -58,7 +58,17 @@
     border: 2px solid var(--green-color);
     cursor: pointer;
     font-size: 20px;
-    
+    transition: background-color 0.3s, border-color 0.3s; 
+}
+
+.container button:hover {
+    background-color: #019b51;
+    border-color: #019b51;
+}
+
+.container button:active {
+    background-color: var(--green-color); 
+    border-color: var(--green-color)
 }
 
 @media screen and (max-width: 768px) {
