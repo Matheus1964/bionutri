@@ -1,0 +1,102 @@
+.container h2, button {
+    font-family: 'Roboto', sans-serif;
+}
+
+.descricao {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;     
+  }
+
+.container h2, p, .botoes {
+   padding-top: 10px;
+}
+
+.container {
+    display: flex;
+    margin: auto;
+    width: 90%;
+}
+
+.container h2 {
+    font-size: 33px; 
+    text-align: center;
+    width: 80%;
+}
+
+.container p {
+    font-size: 22px; 
+    width: 80%;
+}
+
+.container img {
+    max-width: 100%;
+    height: auto;
+  }
+
+.containerimg {
+    display: flex;
+    justify-content: center; 
+    align-items: center;  
+}
+
+.container button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--white-color);
+    color: var(--purple-color);
+    margin-right: 20px;
+    margin-top: 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid var(--purple-color);
+    cursor: pointer;
+    transition: background-color 0.3s; 
+}
+
+.container .acessarbtn {
+    background-color: var(--purple-color);
+    color: var(--white-color);
+    justify-content: right;
+}
+
+.consultabtn:hover {
+    background-color: var(--purple-color); 
+    color: var(--white-color);
+}
+
+.consultabtn:active {
+    background-color: var(--white-color); 
+    color: var(--purple-color);
+}
+
+.acessarbtn:hover {
+    background-color: var(--white-color); 
+    color: var(--purple-color);
+}
+
+.acessarbtn:active {
+    background-color: var(--purple-color); 
+    color: var(--white-color);
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+      flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 437px) {
+    .botoes {
+        text-align: center;
+    }
+
+    .container h2 {
+        font-size: 24px;
+      }
+    
+    .container p {
+        font-size: 16px;
+      }
+}
