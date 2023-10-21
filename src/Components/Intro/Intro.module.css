@@ -13,10 +13,16 @@
    padding-top: 10px;
 }
 
+.botoes {
+    margin-bottom: 5px;
+}
+
 .container {
     display: flex;
     margin: auto;
     width: 90%;
+    justify-content: center;
+    align-items: center;
 }
 
 .container h2 {
@@ -31,8 +37,8 @@
 }
 
 .container img {
-    max-width: 100%;
-    height: auto;
+    width: 100%; /* Set the image width to 100% of the container */
+    height: auto; /* Maintain the image's aspect ratio */
   }
 
 .containerimg {
@@ -84,6 +90,7 @@
 @media screen and (max-width: 768px) {
     .container {
       flex-direction: column;
+      width: 100%;
     }
 }
 

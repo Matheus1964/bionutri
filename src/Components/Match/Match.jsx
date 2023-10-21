@@ -4,15 +4,15 @@ import { Link } from "react-router-dom"
 
 function Match(){
   return(
-    <div classnames={Styles.container}>
-      <div classnames={Styles.containerimg}>
+    <div className={Styles.container}>
+      <div className={Styles.containerimg}>
         <img src={Banner} alt="Banner"/>
       </div>
-      <div classnames={Styles.descricao}>
+      <div className={Styles.descricao}>
         <h2>O match perfeito!</h2>
-        <p classnames={Styles.p1}>Tenha mais visibilidade com a Busca por Nutricionista</p>
-        <p>Uma solução pensada para conectar pacientes a nutricionistas</p>
-        <div classnames={Styles.botao}>
+        <p className={Styles.p1}>Tenha mais visibilidade com a Busca por Nutricionista</p>
+        <p className={Styles.p2}>Uma solução pensada para conectar pacientes a nutricionistas</p>
+        <div className={Styles.botao}>
           <Link to ="">
             <button>Encontre um profissional</button>
           </Link>
