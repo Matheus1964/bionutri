@@ -1,9 +1,16 @@
-import Styles from "./Home.module.css"
+import About from "../../Components/About/index"
+import Intro from "../../Components/Intro/Intro"
+import Match from "../../Components/Match/Match"
+import Footer from "../../Components/Footer/Footer"
+
 
 function Home (){
   return (
     <div>
-      <h1 className={Styles.titulo}>teste</h1>
+      <Intro/>
+      <About/>
+      <Match/>
+      <Footer/>
     </div>
   )
 }
