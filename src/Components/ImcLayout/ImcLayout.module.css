@@ -1,0 +1,90 @@
+.divContainer{
+  background-color: #05E279;
+  height: fit-content;
+  padding-top: 40px;
+  padding-right: 10px;
+  display: block;
+  justify-content: flex-start;
+  padding-bottom: 30px;
+}
+
+.FormImcDiv{
+  width: 100%;
+}
+
+.Subtitle{
+  margin-bottom: 30px;
+}
+
+.divClassificacao{
+  width: fit-content;
+  color: #6828ED;
+  margin: 0 10px;
+  padding: 0 10px;
+}
+
+.divClassificacao h4{
+  font-weight: 700;
+}
+
+.divClassificacao p{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@media (min-width: 320px) {
+  .FormImcDiv{
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  .mainSubtitle{
+    font-size: 25px;
+  }
+
+  .divClassificacao{
+    font-size: 20px;
+  }
+
+  .divClassificacao p{
+    font-size: 18px;
+    font-weight: 600;
+  }
+}
+
+@media (min-width: 768px) {
+  .divContainer{
+    width: 100%;
+    display: flex;
+  }
+
+  .FormImcDiv{
+    width: 100%;
+    max-width: 700px;
+
+  }
+
+  .mainSubtitle{
+    font-size: 30px;
+  }
+
+  .divClassificacao{
+    font-size: 25px;
+  }
+
+  .divClassificacao p{
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 1000px) {
+  .divClassificacao {
+    flex: 0.5;
+  }
+
+  .FormImcDiv {
+    flex: 0.5;
+    max-width: 800px;
+  }
+
+}
