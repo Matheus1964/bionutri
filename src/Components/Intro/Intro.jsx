@@ -1,6 +1,7 @@
 import introstyles from "./Intro.module.css"
 import Banner from "../../Assets/Home/intro-banner.png"
 import { Link } from "react-router-dom"
+import React from "react"
 
 function Intro(){
   return(
