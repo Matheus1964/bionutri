@@ -37,8 +37,8 @@
 }
 
 .container img {
-    width: 100%; /* Set the image width to 100% of the container */
-    height: auto; /* Maintain the image's aspect ratio */
+    width: 100%; 
+    height: auto; 
   }
 
 .containerimg {
@@ -50,8 +50,8 @@
 .container button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--white-color);
-    color: var(--purple-color);
+    background-color: var(--purple-color);
+    color: var(--white-color);
     margin-right: 20px;
     margin-top: 10px;
     text-align: center;
@@ -61,28 +61,12 @@
     transition: background-color 0.3s; 
 }
 
-.container .acessarbtn {
-    background-color: var(--purple-color);
-    color: var(--white-color);
-    justify-content: right;
-}
-
-.consultabtn:hover {
-    background-color: var(--purple-color); 
-    color: var(--white-color);
-}
-
-.consultabtn:active {
+.container button:hover {
     background-color: var(--white-color); 
     color: var(--purple-color);
 }
 
-.acessarbtn:hover {
-    background-color: var(--white-color); 
-    color: var(--purple-color);
-}
-
-.acessarbtn:active {
+.container button:active {
     background-color: var(--purple-color); 
     color: var(--white-color);
 }

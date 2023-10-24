@@ -10,10 +10,10 @@ function Intro(){
         <p>Tudo que o Nutricionista precisa para facilitar a rotina, gerir seu consultório e fidelizar pacientes - em um só lugar.</p>
         <div className={Styles.botoes}>
           <Link to ="">
-            <button className={Styles.consultabtn}>Marque uma Consulta agora mesmo</button>
+            <button>Marque uma Consulta agora mesmo</button>
           </Link>
           <Link to ="">
-            <button className={Styles.acessarbtn}>Acessar</button>
+            <button>Acessar</button>
           </Link>
         </div>
       </div>
