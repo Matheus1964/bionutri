@@ -1,9 +1,14 @@
-.identidade {
-    display: flex;
-    padding-left: 20px;
+.container {
+    padding-top: 5px;
+    padding-left: 10px;
 }
 
-.descricao {
-  
+.identidade {
+    display: flex;
+    align-items: center; 
    
-}
+  }
+  
+.imagem {
+    margin-right: 20px; 
+  }

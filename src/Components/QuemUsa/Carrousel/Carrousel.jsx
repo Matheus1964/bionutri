@@ -15,9 +15,10 @@ function Carrousel() {
   return (
     <Swiper
       modules={[Navigation, A11y]}
-      spaceBetween={10}
+      spaceBetween={40}
       slidesPerView={1.3}
       navigation
+      //autoHeight={true}
       onSwiper={(swiper) => console.log(swiper)}
       onSlideChange={() => console.log('slide change')}
     >

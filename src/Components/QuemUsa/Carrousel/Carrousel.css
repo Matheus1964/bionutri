@@ -1,11 +1,10 @@
 .swiper {
-   
+   margin-bottom: 100px;
 }
 
 .swiper-slide {
     display: flex;
     justify-content: center;
-    border-style: solid;
     background-color: var(--light-gray-color);
 }
 
