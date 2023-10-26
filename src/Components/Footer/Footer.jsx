@@ -20,22 +20,22 @@ function Footer() {
             <div className="socialmedia">
               <p>
                 <a href={youtube_link} target="_blank"> 
-                  <Youtube_logo className="icon"/>
+                  <img src={Youtube_logo} alt="" className='icon'/>
                 </a>
               </p>
               <p>
                 <a href={facebook_link} target="_blank"> 
-                  <Facebook_logo className="icon" alt=""/>
+                <img src={Facebook_logo} alt="" className='icon'/>
                 </a>
               </p>
               <p>
                 <a href={instagram_link} target="_blank"> 
-                  <Instagram_logo className="icon" alt=""/>
+                <img src={Instagram_logo} alt="" className='icon'/>
                 </a>
               </p>
               <p>
                 <a href={tiktok_link} target="_blank">
-                  <Tiktok_logo className="icon" alt=""/>
+                <img src={Tiktok_logo} alt="" className='icon'/>
                 </a>
               </p>
             </div> 
