@@ -1,9 +1,9 @@
 import './Footer.css'
 
-import { ReactComponent as Youtube_logo } from '../../Assets/youtube_icon.svg'
-import { ReactComponent as Facebook_logo } from '../../Assets/fb_social_icon.svg'
-import { ReactComponent as Instagram_logo } from '../../Assets/instagram_icon.svg'
-import { ReactComponent as Tiktok_logo } from '../../Assets/tik_tok_icon.svg'
+import Youtube_logo from '../../Assets/youtube_icon.svg'
+import Facebook_logo from '../../Assets/fb_social_icon.svg'
+import Instagram_logo  from '../../Assets/instagram_icon.svg'
+import Tiktok_logo  from '../../Assets/tik_tok_icon.svg'
 
 const youtube_link = "https://www.youtube.com/"
 const facebook_link = "https://web.facebook.com/"
@@ -20,22 +20,22 @@ function Footer() {
             <div className="socialmedia">
               <p>
                 <a href={youtube_link} target="_blank"> 
-                  <Youtube_logo className="icon"/>
+                  <img src={Youtube_logo} alt="" className='icon'/>
                 </a>
               </p>
               <p>
                 <a href={facebook_link} target="_blank"> 
-                  <Facebook_logo className="icon" alt=""/>
+                <img src={Facebook_logo} alt="" className='icon'/>
                 </a>
               </p>
               <p>
                 <a href={instagram_link} target="_blank"> 
-                  <Instagram_logo className="icon" alt=""/>
+                <img src={Instagram_logo} alt="" className='icon'/>
                 </a>
               </p>
               <p>
                 <a href={tiktok_link} target="_blank">
-                  <Tiktok_logo className="icon" alt=""/>
+                <img src={Tiktok_logo} alt="" className='icon'/>
                 </a>
               </p>
             </div> 
