@@ -7,13 +7,14 @@ function QuemUsa(){
   return(
     <>
       <div className={Styles.container}>
-        <img className={Styles.medico} src={Medico} alt="Imagem de uma mulher" />
+        <img className={Styles.medico} src={Medico} alt="medico" />
         <div className={Styles.descricao}>
             <h2>Quem usa o <span>BioNutri</span></h2>
-            <p>Os melhores nutricionista do Brasil estão no <span>BioNutri</span>. Veja quem são</p>
+            <p>Os melhores nutricionista do Brasil estão no <span>BioNutri</span>.</p>
+            <p>Veja quem são</p>
         </div>
-        <Carrousel/>
-        <img className={Styles.medica} src={Medica} alt="Imagem de uma mulher" />
+        <Carrousel className={Styles.carrousel}/>
+        <img className={Styles.medica} src={Medica} alt="medica" />
       </div>
     </>
   )

@@ -2,7 +2,7 @@ import Styles from "./Card.module.css"
 import ProfilePic from "../../../../Assets/Carrousel/default-profilepic.png"
 
 
-function Carrousel() {
+function Card() {
   return (
    <>
    <div className={Styles.container}>
@@ -16,4 +16,4 @@ function Carrousel() {
   );
 };
 
-export default Carrousel;
+export default Card;
