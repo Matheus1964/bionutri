@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
-import HeaderStyle from './Header.module.css';
+import React, { useState } from 'react'
+import HeaderStyle from './Header.module.css'
 import Logo from "../../Assets/logo.png"
 import Triangle from "../../Assets/triangle.png"
 import UserIcon from "../../Assets/user-icon.png"
 
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userMenuVisible, setUserMenuVisible] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [userMenuVisible, setUserMenuVisible] = useState(false)
 
   function toggleUserMenu() {
-    setUserMenuVisible(!userMenuVisible);
+    setUserMenuVisible(!userMenuVisible)
   }
 
   function openNav() {
     if(window.innerWidth < 450){
-      document.getElementById("mySidenav").style.width = "100%";
+      document.getElementById("mySidenav").style.width = "100%"
     } else {
-      document.getElementById("mySidenav").style.width = "250px";
+      document.getElementById("mySidenav").style.width = "250px"
     }
   }
   
   function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById("mySidenav").style.width = "0"
   }
 
   const userMenu = isLoggedIn && userMenuVisible && (
@@ -40,7 +40,6 @@ function Header() {
           <span class={HeaderStyle.line}></span> 
           <span class={HeaderStyle.line}></span>  
         </div>
-          
       
         <div class={HeaderStyle.logoDiv}>
           <a href="/"><img class={HeaderStyle.logoImg} src={Logo} alt='Logotipo do site'/></a>
@@ -91,11 +90,7 @@ function Header() {
         
       </div>  
 
-      
-
-
     </header>
-
     
   );
 }
