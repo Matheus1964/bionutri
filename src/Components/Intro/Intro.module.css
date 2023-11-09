@@ -13,10 +13,16 @@
    padding-top: 10px;
 }
 
+.botoes {
+    margin-bottom: 5px;
+}
+
 .container {
     display: flex;
     margin: auto;
     width: 90%;
+    justify-content: center;
+    align-items: center;
 }
 
 .container h2 {
@@ -31,8 +37,8 @@
 }
 
 .container img {
-    max-width: 100%;
-    height: auto;
+    width: 100%; 
+    height: auto; 
   }
 
 .containerimg {
@@ -44,8 +50,8 @@
 .container button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: var(--white-color);
-    color: var(--purple-color);
+    background-color: var(--purple-color);
+    color: var(--white-color);
     margin-right: 20px;
     margin-top: 10px;
     text-align: center;
@@ -55,28 +61,12 @@
     transition: background-color 0.3s; 
 }
 
-.container .acessarbtn {
-    background-color: var(--purple-color);
-    color: var(--white-color);
-    justify-content: right;
-}
-
-.consultabtn:hover {
-    background-color: var(--purple-color); 
-    color: var(--white-color);
-}
-
-.consultabtn:active {
+.container button:hover {
     background-color: var(--white-color); 
     color: var(--purple-color);
 }
 
-.acessarbtn:hover {
-    background-color: var(--white-color); 
-    color: var(--purple-color);
-}
-
-.acessarbtn:active {
+.container button:active {
     background-color: var(--purple-color); 
     color: var(--white-color);
 }
@@ -84,6 +74,7 @@
 @media screen and (max-width: 768px) {
     .container {
       flex-direction: column;
+      width: 100%;
     }
 }
 

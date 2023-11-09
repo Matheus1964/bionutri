@@ -13,7 +13,7 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/consulta" element={<Nutricionistas />}/>
-          <Route path="/contato" element={<Nutricionistas />}/>
+          <Route path="/contato" element={<Contato />}/>
 
           
        </Routes>
