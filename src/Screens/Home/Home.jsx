@@ -14,8 +14,8 @@ function Home (){
       <Header/>
       <Intro/>
       <ImcLayout/>
-      <About/>
       <QuemUsa/>
+      <About/>
       <Match/>
       <Footer/>
     </div>
