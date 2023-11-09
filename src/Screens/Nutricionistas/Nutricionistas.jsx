@@ -17,6 +17,7 @@ function Nutricionistas(){
   const [currentPage, setCurrentPage] = useState(1);
   const elementsPerPage = 5;
   const [filteredNutricionistas, setFilteredNutricionistas] = useState([])
+  const inputSearch = document.getElementById("busca")
 
   const handlePageChange = (page) => {
     setCurrentPage(page)
@@ -36,7 +37,6 @@ function Nutricionistas(){
     
 
     setFilteredNutricionistas(filtered);
-    console.log(filtered)
   }
 
 
@@ -67,7 +67,6 @@ function Nutricionistas(){
 
   const pageItems = [];
   const totalPages = Math.ceil(filteredNutricionistas.length / elementsPerPage);
-  console.log("carregamento de pags ",filteredNutricionistas)
 
   for (let page = 1; page <= totalPages; page++) {
     pageItems.push(
@@ -86,7 +85,7 @@ function Nutricionistas(){
   function handleUfChange(uf){
     setSelectedUF(uf);
     setCurrentPage(1)
-  };
+  }
 
   function renderFiltered(){
     return filteredNutricionistas.map((nutricionista) => {
@@ -105,6 +104,24 @@ function Nutricionistas(){
       />)
     })
   }
+
+  function search(){
+    var valor = inputSearch.value
+    
+    
+    console.log(valor)
+  }
+
+  if(inputSearch){
+    inputSearch.addEventListener("keyup", ({key}) => {
+      if (key === "Enter") {
+        search()
+      }
+    })
+  }
+  
+  
+
 
   function btnClick(){
     //direcionar para a pagina de conversa
@@ -128,9 +145,9 @@ function Nutricionistas(){
           
 
           <div class={nutricionistaStyle.divBusca}>
-            <input type="text" id="busca" class={nutricionistaStyle.txtBusca} 
+            <input type="text" id="busca" name="search" class={nutricionistaStyle.txtBusca} 
             placeholder="Buscar nutricionista ou local"/>
-            <img src={searchIcon} class={nutricionistaStyle.btnBusca} alt="Buscar"/>
+            <img src={searchIcon} class={nutricionistaStyle.btnBusca} alt="Buscar" onClick={search}/>
           </div>
         </div>
 
