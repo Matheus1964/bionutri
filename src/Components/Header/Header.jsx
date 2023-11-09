@@ -5,8 +5,9 @@ import Triangle from "../../Assets/triangle.png"
 import UserIcon from "../../Assets/user-icon.png"
 
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true) //mudar para false
   const [userMenuVisible, setUserMenuVisible] = useState(false)
+  const consultaRoute = "/consulta"
 
   function toggleUserMenu() {
     setUserMenuVisible(!userMenuVisible)
@@ -27,7 +28,7 @@ function Header() {
   const userMenu = isLoggedIn && userMenuVisible && (
     <div class={HeaderStyle.userMenu}>
       <a href="#">Meus Dados</a>
-      <a href="#">Consultas</a>
+      <a href={consultaRoute}>Consultas</a>
       <a href="#">Sair</a>
     </div>
   );
@@ -76,7 +77,7 @@ function Header() {
         <a href="/">Início</a>
         <a href="#">Contato</a>
         <a href="#">Sobre</a>
-        <a href="#">Consulta</a>
+        <a href="/consulta">Consulta</a>
         {!isLoggedIn ? 
         (
           <>
