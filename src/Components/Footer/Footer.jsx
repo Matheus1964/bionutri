@@ -1,4 +1,5 @@
 import './Footer.css'
+import React from 'react'
 
 import Youtube_logo from '../../Assets/youtube_icon.svg'
 import Facebook_logo from '../../Assets/fb_social_icon.svg'

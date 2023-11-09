@@ -1,0 +1,90 @@
+.formImc{
+  padding: 10px;
+  text-align: left;
+  box-shadow: 7px 6px 0px 0px #6828ED;
+  border-radius: 7px;
+  min-width: fit-content;
+  max-width: 90%;
+  border: 1px solid rgb(220, 224, 224);
+  background-color: white;
+}
+
+.formDiv{
+  padding: 20px 15px;
+}
+
+.divBtnCalc{
+  margin: 20px 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.btnCalc{
+  width: 90%;
+  background-color: #05e279;
+  border-radius: 3px;
+  padding: 15px 0;
+  color: white;
+  font-size: large;
+}
+
+.inputForm{
+  margin-top: 5px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  margin-right: 5px;
+  width: 100px;
+}
+
+.divResult{
+  border-top: solid 1px black;
+}
+
+.inputErro{
+  border-color: red;
+  box-shadow: 0px 0px 4px 0.2px red;
+}
+
+.buttonAlign{
+  text-align: center;
+}
+
+#divResult h4{
+  text-align: center;
+  margin-top: 10px;
+  display: none;
+}
+
+.buttonClose{
+  padding: 10px;
+  border-radius: 3px;
+  font-size: large;
+  background-color: rgb(62, 118, 214);
+  color: white;
+}
+
+.aviso{
+  margin-top: 0;
+  padding-top: 3px;
+  font-size: 10px;
+  color: red;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media (min-width: 320px) {
+  .formImc{
+    width: 85%; 
+  }
+}
+
+@media (min-width: 768px) {
+  .formImc{
+    width: 80%;
+    max-width: 400px;
+  }
+}
