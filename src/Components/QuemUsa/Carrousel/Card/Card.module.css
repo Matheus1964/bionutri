@@ -1,13 +1,18 @@
 .container {
-    padding-top: 5px;
-    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;   
 }
+
+.wrapper {
+    padding-left: 10px; 
+  }
 
 .identidade {
     display: flex;
     align-items: center; 
-   
-  }
+}
   
 .imagem {
     margin-right: 20px; 

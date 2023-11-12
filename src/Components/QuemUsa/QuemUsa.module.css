@@ -10,6 +10,10 @@
 .descricao {
     font-size: 45px;
     padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: left;   
   }
   
 .descricao span {
