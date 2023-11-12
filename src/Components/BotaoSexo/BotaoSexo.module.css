@@ -1,0 +1,45 @@
+.btn{
+  color: white;
+  border-radius: 5px;
+  border: none;
+  min-width: fit-content;
+  font-size: 18px;
+  padding: 10px 15px;
+}
+
+.btnM{
+  background-color: #36B1DF;
+  
+}
+
+.btnF{
+  background-color: #D38BFD;
+  padding: 10px 18px;
+}
+
+.btnF:hover{
+  background-color: #7c5393;
+  transition: 0.4s;
+}
+
+.btnM:hover{
+  background-color: #347790;
+  transition: 0.4s;
+}
+
+.btnM.active{
+  box-shadow: 0 0 15px  rgb(56, 56, 229);
+  border: solid 2px #347790;
+}
+
+.btnF.active{
+  box-shadow: 0 0 15px  rgb(248, 61, 244);
+  border: solid 2px #7c5393;
+}
+
+@media screen and (max-width: 400px){
+  .btn{
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+}

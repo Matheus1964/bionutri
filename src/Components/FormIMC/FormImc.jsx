@@ -1,3 +1,4 @@
+import BotaoSexo from '../BotaoSexo/BotaoSexo';
 import FormImcStyles from './FormImc.module.css';
 import React, { useState } from 'react';
 
@@ -9,13 +10,15 @@ function FormIMC(){
   const [inputPesoErro, setInputPesoErro] = useState('')
   const [inputAlturaErro, setInputAlturaErro] = useState('')
   const [divVisibilidade, setDivVisibilidade] = useState(false)
+  const [btnActive, setBtnActive] = useState(null)
+  const [sexoErro, setSexoErro]  = useState(null)
 
   const classesIdade = `${FormImcStyles.inputForm} ${inputIdadeErro} `
   const classesAltura = `${FormImcStyles.inputForm} ${inputAlturaErro}`
   const classesPeso = `${FormImcStyles.inputForm} ${inputPesoErro}`
 
   function trocarPonto(numero){
-    return numero.replace(".", ",");
+    return numero.replace(".", ",")
   }
 
   function calcularIMC(){
@@ -25,23 +28,49 @@ function FormIMC(){
     altura = parseFloat(document.getElementById("altura").value);
     peso = parseFloat(document.getElementById("peso").value);
 
-    if(Number.isNaN(idade) && Number.isNaN(altura) && Number.isNaN(peso)){
+    if(Number.isNaN(idade) && Number.isNaN(altura) && Number.isNaN(peso) && btnActive == null){
       setInputIdadeErro(FormImcStyles.inputErro)
       setInputAlturaErro(FormImcStyles.inputErro)
       setInputPesoErro(FormImcStyles.inputErro)
+      setSexoErro(FormImcStyles.inputErro)
+    } else if(Number.isNaN(idade) && Number.isNaN(altura) && Number.isNaN(peso)){
+      setInputIdadeErro(FormImcStyles.inputErro)
+      setInputAlturaErro(FormImcStyles.inputErro)
+      setInputPesoErro(FormImcStyles.inputErro)
+    } else if(Number.isNaN(idade) && Number.isNaN(altura) && btnActive == null){
+      setInputIdadeErro(FormImcStyles.inputErro)
+      setInputAlturaErro(FormImcStyles.inputErro)
+      setSexoErro(FormImcStyles.inputErro)
     } else if(Number.isNaN(idade) && Number.isNaN(altura)){
       setInputIdadeErro(FormImcStyles.inputErro)
       setInputAlturaErro(FormImcStyles.inputErro)
+    } else if(Number.isNaN(idade) && Number.isNaN(peso) && btnActive == null){
+      setInputIdadeErro(FormImcStyles.inputErro)
+      setInputPesoErro(FormImcStyles.inputErro)
+      setSexoErro(FormImcStyles.inputErro)
     } else if(Number.isNaN(idade) && Number.isNaN(peso)){
       setInputIdadeErro(FormImcStyles.inputErro)
       setInputPesoErro(FormImcStyles.inputErro)
+    } else if(Number.isNaN(altura) && Number.isNaN(peso) && btnActive == null){
+      setInputAlturaErro(FormImcStyles.inputErro)
+      setInputPesoErro(FormImcStyles.inputErro)
+      setSexoErro(FormImcStyles.inputErro)
     } else if(Number.isNaN(altura) && Number.isNaN(peso)){
       setInputAlturaErro(FormImcStyles.inputErro)
       setInputPesoErro(FormImcStyles.inputErro)
+    } else if(Number.isNaN(idade) && btnActive == null){
+      setInputIdadeErro(FormImcStyles.inputErro)
+      setSexoErro(FormImcStyles.inputErro)
     } else if(Number.isNaN(idade)){
       setInputIdadeErro(FormImcStyles.inputErro)
+    } else if(Number.isNaN(altura) && btnActive == null){
+      setInputAlturaErro(FormImcStyles.inputErro)
+      setSexoErro(FormImcStyles.inputErro)
     } else if(Number.isNaN(altura)){
       setInputAlturaErro(FormImcStyles.inputErro)
+    } else if(Number.isNaN(peso) && btnActive == null){
+      setInputPesoErro(FormImcStyles.inputErro)
+      setSexoErro(FormImcStyles.inputErro)
     } else if(Number.isNaN(peso)){
       setInputPesoErro(FormImcStyles.inputErro)
     } else {
@@ -87,10 +116,35 @@ function FormIMC(){
     setDivVisibilidade(false)
   }
 
+  function selectBtn(type){
+    setBtnActive(type)
+    setSexoErro(null)
+  }
+
   return (
     <div class={FormImcStyles.formDiv}>
       <div class={FormImcStyles.formImc}>
-
+        <div class={FormImcStyles.sexoDiv}>
+          <p class={FormImcStyles.formSubtitle}>Sexo</p>
+          <div class={FormImcStyles.divAlignBtn}>
+            <BotaoSexo
+                text="Mulher"
+                type="f"
+                isActive={btnActive === 'f'}
+                onClick={() => selectBtn('f')}
+            />
+            <BotaoSexo
+                text="Homem"
+                type="m"
+                isActive={btnActive === 'm'}
+                onClick={() => selectBtn('m')}
+            />
+          </div>
+          {sexoErro ===  FormImcStyles.inputErro && (
+            <p class={FormImcStyles.aviso}>Por favor selecione um dos itens acima *</p>
+          )}
+        </div>
+        
         <p class={FormImcStyles.formSubtitle}>Idade</p>
         <div class={FormImcStyles.inputLine}>
           <input class={classesIdade} 
