@@ -1,6 +1,7 @@
 import Styles from "./Match.module.css"
 import Banner from "../../Assets/Home/match-banner.png"
 import { Link } from "react-router-dom"
+import React from "react"
 
 function Match(){
   return(

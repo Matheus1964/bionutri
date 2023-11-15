@@ -1,5 +1,6 @@
 import Styles from './About.module.css'
 import Img from '../../Assets/About/undraw_review_re_kgg1 1.svg'
+import React from 'react'
 
 
 function About(){
