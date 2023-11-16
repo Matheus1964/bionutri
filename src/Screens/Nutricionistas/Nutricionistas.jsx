@@ -7,7 +7,7 @@ import Footer from "../../Components/Footer/Footer"
 import Card from "../../Components/Card/Card"
 import arquivo from "./exemplo.js"
 import imagem from "../../Assets/user-icon.png"
-import {Pagination} from 'react-bootstrap'
+import {Pagination} from "react-bootstrap"
 import unorm from "unorm"
 import debounce from "lodash/debounce"
 
@@ -15,7 +15,7 @@ function Nutricionistas() {
   const [selectedUF, setSelectedUF] = useState("")
   const nutricionistasData = arquivo
   const [currentPage, setCurrentPage] = useState(1)
-  const elementsPerPage = 5
+  const elementsPerPage = 1
   const [filteredNutricionistas, setFilteredNutricionistas] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
   const inputSearch = document.getElementById("busca")
@@ -213,7 +213,6 @@ function Nutricionistas() {
           {pageItems.map((item, index) => (
             <React.Fragment key={index}>
               {item === "ellipsis" ? (
-                //<Pagination.Ellipsis key={index} disabled />
                 <span>...</span>
               ) : (
                 item
