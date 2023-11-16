@@ -3,6 +3,7 @@ import React from "react";
 
 import Home from "../Screens/Home/Home";
 import Nutricionistas from "../Screens/Nutricionistas/Nutricionistas";
+import Contato from '../Screens/Contato/index'
 
 function AppRoutes() {
   return (
@@ -12,6 +13,7 @@ function AppRoutes() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/consulta" element={<Nutricionistas />}/>
+          <Route path="/contato" element={<Contato />}/>
 
           
        </Routes>

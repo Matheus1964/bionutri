@@ -4,6 +4,8 @@ import Match from "../../Components/Match/Match"
 import Footer from "../../Components/Footer/Footer"
 import ImcLayout from "../../Components/ImcLayout/ImcLayout"
 import Header from "../../Components/Header/Header"
+import QuemUsa from "../../Components/QuemUsa/QuemUsa"
+
 import React from "react"
 
 function Home (){
@@ -12,6 +14,7 @@ function Home (){
       <Header/>
       <Intro/>
       <ImcLayout/>
+      <QuemUsa/>
       <About/>
       <Match/>
       <Footer/>

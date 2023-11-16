@@ -1,0 +1,27 @@
+.swiper {
+   margin-bottom: 100px;
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: left;
+    background-color: var(--light-gray-color);
+}
+
+.swiper-button-prev {
+    background-image: url(./../../../Assets/Carrousel/left-arrow.svg);
+}
+
+.swiper-button-next {
+    background-image: url(./../../../Assets/Carrousel/right-arrow.svg);
+}
+
+.swiper-button-next, .swiper-button-prev {
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: center;
+}
+
+.swiper-button-next::after, .swiper-button-prev:after {
+    display: none;
+  }
