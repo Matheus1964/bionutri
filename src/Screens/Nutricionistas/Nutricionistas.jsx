@@ -1,95 +1,140 @@
 import React, { useEffect, useState } from "react"
-import nutricionistaStyle from './Nutricionistas.module.css'
+import nutricionistaStyle from "./Nutricionistas.module.css"
 import DropdownUf from "../../Components/DropdownUf/DropdownUf"
 import Header from "../../Components/Header/Header"
-import searchIcon from '../../Assets/search.png'
-import Footer from '../../Components/Footer/Footer'
+import searchIcon from "../../Assets/search.png"
+import Footer from "../../Components/Footer/Footer"
 import Card from "../../Components/Card/Card"
 import arquivo from "./exemplo.js"
-import imagem from '../../Assets/user-icon.png'
-import { Pagination } from 'react-bootstrap'
+import imagem from "../../Assets/user-icon.png"
+import {Pagination} from 'react-bootstrap'
+import unorm from "unorm"
+import debounce from "lodash/debounce"
 
-function Nutricionistas(){
-  const [selectedUF, setSelectedUF] = useState('');
-
-  const nutricionistasData = arquivo;
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const elementsPerPage = 5;
+function Nutricionistas() {
+  const [selectedUF, setSelectedUF] = useState("")
+  const nutricionistasData = arquivo
+  const [currentPage, setCurrentPage] = useState(1)
+  const elementsPerPage = 5
   const [filteredNutricionistas, setFilteredNutricionistas] = useState([])
+  const [searchTerm, setSearchTerm] = useState("")
   const inputSearch = document.getElementById("busca")
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page)
-  }
+  const debouncedSearch = debounce(search, 300)
+
+  const [pageItems, setPageItems] = useState([])
+
+  const handlePageChange = (page, totalPages) => {
+    if (page != 0 && page != totalPages+1){
+      setCurrentPage(page)
+    }
+    
+  };
 
   useEffect(() => {
     filterNutricionistas()
-  }, [selectedUF, currentPage])
+  }, [selectedUF, currentPage, searchTerm])
+
+  useEffect(() => {
+    updatePageItems(Math.ceil(filteredNutricionistas.length / elementsPerPage))
+  }, [filteredNutricionistas, elementsPerPage, currentPage])
+
+  useEffect(() => {
+    setCurrentPage(1)
+  }, [selectedUF])
 
   function filterNutricionistas() {
-    let filtered = selectedUF ? nutricionistasData.filter((nutricionista) => nutricionista.uf === selectedUF)
-      : nutricionistasData
+    let filtered =
+      selectedUF !== ""
+        ? nutricionistasData.filter((nutricionista) => nutricionista.uf === selectedUF)
+        : nutricionistasData
 
-    const indexOfFirst = (currentPage - 1) * elementsPerPage;
-    const indexOfLast = indexOfFirst + elementsPerPage;
-    const visibleFilteredItems = filtered.slice(indexOfFirst, indexOfLast);
-    
+    if (searchTerm !== "") {
+      const normalizedSearchTerm = unorm.nfd(searchTerm.toLowerCase()).replace(/[\u0300-\u036f]/g, "")
 
-    setFilteredNutricionistas(filtered);
+      filtered = filtered.filter((nutricionista) => {
+        const nomeLower = unorm.nfd(nutricionista.nome.toLowerCase()).replace(/[\u0300-\u036f]/g, "")
+        const cidadeLower = unorm.nfd(nutricionista.cidade.toLowerCase()).replace(/[\u0300-\u036f]/g, "")
+        const especialidadesLower = unorm
+          .nfd(nutricionista.especialidadesNutricao.join(" ").toLowerCase())
+          .replace(/[\u0300-\u036f]/g, "")
+
+        return (
+          nomeLower.includes(normalizedSearchTerm) ||
+          cidadeLower.includes(normalizedSearchTerm) ||
+          especialidadesLower.includes(normalizedSearchTerm)
+        );
+      });
+    }
+
+    setFilteredNutricionistas(filtered)
   }
 
-
-  function renderNotFilteredItems(){
-    const indexOfFirst =(currentPage - 1) * elementsPerPage
-    const indexOfLast = indexOfFirst + elementsPerPage
-    const visibleItems = nutricionistasData.slice(indexOfFirst, indexOfLast)
-
-    return visibleItems.map((nutricionista) => {
-
-      return(
-        <Card
-          key={nutricionista.id}
-          id={nutricionista.id}
-          nome={nutricionista.nome}
-          clinica={nutricionista.clinica}
-          especialidades={nutricionista.especialidadesNutricao.join(', ')}
-          cidade={nutricionista.cidade}
-          uf={nutricionista.uf}
-          localizacao={nutricionista.localizacao}
-          imagemPerfil={imagem}//mudar depois
-          handleClick={btnClick}
-        />)
-
-    });
-
-  }
-
-  const pageItems = [];
-  const totalPages = Math.ceil(filteredNutricionistas.length / elementsPerPage);
-
-  for (let page = 1; page <= totalPages; page++) {
-    pageItems.push(
-      <Pagination.Item className={nutricionistaStyle.paginationItem}
-        style={{
-        backgroundColor: page === currentPage ? '#6828ED' : 'white',
-      }}
-        key={page}
-        onClick={() => handlePageChange(page)}
+  function updatePageItems(totalPages) {
+    const newPageItems = []
+  
+    newPageItems.push(
+      <div
+        className={nutricionistaStyle.btnActionPage}
+        onClick={() => handlePageChange(currentPage - 1)}
       >
-        {page}
-      </Pagination.Item>
+        {"<"}
+      </div>
     );
-  }
+  
+    const screenWidth = window.innerWidth
 
-  function handleUfChange(uf){
-    setSelectedUF(uf);
-    setCurrentPage(1)
+    let elementsBeforeEllipsis
+    if (screenWidth <= 450) {
+      elementsBeforeEllipsis = 1
+    } else if (screenWidth <= 768) {
+      elementsBeforeEllipsis = 3
+    } else {
+      elementsBeforeEllipsis = 5
+    }
+  
+    for (let page = 1; page <= totalPages; page++) {
+      if (
+        page === 1 ||
+        page === totalPages ||
+        Math.abs(page - currentPage) <= elementsBeforeEllipsis
+      ) {
+        newPageItems.push(
+          <Pagination.Item
+            key={page}
+            onClick={() => handlePageChange(page)}
+            className={nutricionistaStyle.paginationItem}
+            style={{
+              backgroundColor: page === currentPage ? "#6828ED" : "white",
+            }}
+          >
+            {page}
+          </Pagination.Item>
+        );
+      } else if (newPageItems[newPageItems.length - 1] !== "ellipsis") {
+        newPageItems.push("ellipsis")
+      }
+    }
+  
+    newPageItems.push(
+      <div
+        className={nutricionistaStyle.btnActionPage}
+        onClick={() => handlePageChange(currentPage + 1, totalPages)}
+      >
+        {">"}
+      </div>
+    );
+  
+    setPageItems(newPageItems)
   }
+  
 
-  function renderFiltered(){
-    return filteredNutricionistas.map((nutricionista) => {
-      return(
+  function renderVisibleItems() {
+    const indexOfFirst = (currentPage - 1) * elementsPerPage
+    const indexOfLast = indexOfFirst + elementsPerPage
+    const visibleItems = filteredNutricionistas.slice(indexOfFirst, indexOfLast)
+
+    return visibleItems.map((nutricionista) => (
       <Card
         key={nutricionista.id}
         id={nutricionista.id}
@@ -99,79 +144,88 @@ function Nutricionistas(){
         cidade={nutricionista.cidade}
         uf={nutricionista.uf}
         localizacao={nutricionista.localizacao}
-        imagemPerfil={imagem} //mudar depois
+        imagemPerfil={imagem}
         handleClick={btnClick}
-      />)
-    })
+      />
+    ));
   }
 
-  function search(){
-    var valor = inputSearch.value
-    
-    
-    console.log(valor)
+  function handleUfChange(uf) {
+    setSelectedUF(uf);
   }
 
-  if(inputSearch){
-    inputSearch.addEventListener("keyup", ({key}) => {
-      if (key === "Enter") {
-        search()
+  function search() {
+    let value = inputSearch.value
+    setSearchTerm(value.trim())
+  }
+
+  useEffect(() => {
+    if (inputSearch) {
+      const handleKeyPress = ({ key }) => {
+        if (key === "Enter") {
+          debouncedSearch();
+        }
+      };
+
+      inputSearch.addEventListener("keyup", handleKeyPress)
+
+      return () => {
+        inputSearch.removeEventListener("keyup", handleKeyPress)
       }
-    })
-  }
-  
-  
+    }
+  }, [inputSearch, debouncedSearch])
 
-
-  function btnClick(){
-    //direcionar para a pagina de conversa
+  function btnClick() {
+    // direcionar para a página de conversa
     console.log("Clicado")
   }
 
   return (
     <div>
-      <Header/>
-      <div class={nutricionistaStyle.content}>
+      <Header />
+      <div className={nutricionistaStyle.content}>
+        <h1 className={nutricionistaStyle.mainTitle}>Nutricionistas</h1>
 
-        <h1 class={nutricionistaStyle.mainTitle}>
-          Nutricionistas
-        </h1>
-          
-        <div class={nutricionistaStyle.divFilter}>
-          <div class={nutricionistaStyle.filterUf}>
+        <div className={nutricionistaStyle.divFilter}>
+          <div className={nutricionistaStyle.filterUf}>
             <span>Filtrar UF</span>
-            <DropdownUf onUfChange={handleUfChange} selectedUf={selectedUF}/>
+            <DropdownUf onUfChange={handleUfChange} selectedUf={selectedUF} />
           </div>
-          
 
-          <div class={nutricionistaStyle.divBusca}>
-            <input type="text" id="busca" name="search" class={nutricionistaStyle.txtBusca} 
-            placeholder="Buscar nutricionista ou local"/>
-            <img src={searchIcon} class={nutricionistaStyle.btnBusca} alt="Buscar" onClick={search}/>
+          <div className={nutricionistaStyle.divBusca}>
+            <input
+              type="text"
+              id="busca"
+              name="search"
+              className={nutricionistaStyle.txtBusca}
+              placeholder="Buscar nutricionista ou local"
+            />
+
+            <img src={searchIcon} className={nutricionistaStyle.btnBusca} alt="Buscar" onClick={search} />
           </div>
         </div>
 
-        <div class={nutricionistaStyle.lista}>
-          {
-            selectedUF == '' ? 
-            renderNotFilteredItems()
-            :
-            renderFiltered()
-          }
-        </div>
-
+        <div className={nutricionistaStyle.lista}>{renderVisibleItems()}</div>
       </div>
-      
-      <div class={nutricionistaStyle.paginationDiv}>
+
+      <div className={nutricionistaStyle.paginationDiv}>
         <Pagination className={nutricionistaStyle.pagination}>
-          {pageItems}
+          {pageItems.map((item, index) => (
+            <React.Fragment key={index}>
+              {item === "ellipsis" ? (
+                //<Pagination.Ellipsis key={index} disabled />
+                <span>...</span>
+              ) : (
+                item
+              )}
+            </React.Fragment>
+          ))}
         </Pagination>
       </div>
 
-    <Footer/>
+      <Footer />
     </div>
-
-  )
+  );
 }
 
 export default Nutricionistas;

@@ -69,7 +69,6 @@
 .paginationItem{
   background-color: rgb(214, 213, 213);
   border-radius: 5px;
-  border: 1px black solid;
 }
 
 .paginationDiv{
@@ -88,10 +87,12 @@
 }
 
 .pagination li a{
+  border: 1px black solid;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 40px;
+  min-width: fit-content;
   height: 40px;
   text-align: center;
   font-size: 18px;
@@ -104,6 +105,22 @@
 
 .pagination li a:hover {
   background-color: rgb(64, 63, 143);
+}
+
+.btnActionPage{
+  border: 1px black solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  min-width: fit-content;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 
@@ -123,5 +140,24 @@
   .divBusca{
     margin: 20px 0;
     width: 100%;
+  }
+
+  .pagination li a{
+    width: 30px;
+    height: 30px;
+    min-width: fit-content;
+    font-size: 12px;
+  }
+
+  .btnActionPage{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .pagination li a{
+    width: 25px;
+    min-width: fit-content;
   }
 }

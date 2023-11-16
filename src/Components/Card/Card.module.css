@@ -59,7 +59,10 @@
 }
 
 @media screen and (max-width: 768px){
-  .divCard{
+  .divCard {
     margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
 }
