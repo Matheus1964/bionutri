@@ -181,6 +181,17 @@
     }
 }
 
+.botaoFacebook {
+    color: #ffffff;
+    background-image: url(../../../Assets/Login/facebook-icon.svg);
+    background-color: #0094FF;
+
+    &:active {
+      background-color: #0094FF;
+    }
+}
+
+
 @media screen and (max-width: 1045px){
 
 .porta {

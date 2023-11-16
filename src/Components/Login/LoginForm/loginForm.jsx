@@ -31,7 +31,7 @@ const Auth = () => {
           <button /* onClick={signInWithGoogle} */ type="button" className={Styles.botaoGoogle}>
             Entrar com google
           </button>
-          <button type="button" className={Styles.botaoGoogle}>
+          <button type="button" className={`${Styles.botaoGoogle} ${Styles.botaoFacebook}`}>
             Entrar com Facebook
           </button>
         </div>
