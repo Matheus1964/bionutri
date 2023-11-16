@@ -15,7 +15,7 @@ function Nutricionistas() {
   const [selectedUF, setSelectedUF] = useState("")
   const nutricionistasData = arquivo
   const [currentPage, setCurrentPage] = useState(1)
-  const elementsPerPage = 1
+  const elementsPerPage = 5
   const [filteredNutricionistas, setFilteredNutricionistas] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
   const inputSearch = document.getElementById("busca")
