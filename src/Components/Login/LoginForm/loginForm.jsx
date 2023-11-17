@@ -55,7 +55,7 @@ const LoginForm = () => {
               <input type="checkbox" />
               Permanecer Conectado
             </label>
-            <Link to="#">Esqueceu Sua Senha?</Link>
+            <Link className={Styles.esqueceu} to="#">Esqueceu Sua Senha?</Link>
           </div>
           <div className={Styles.senha}>
             <input placeholder="Senha" maxLength="40" minLength="2" required type={PasswordInputType} />

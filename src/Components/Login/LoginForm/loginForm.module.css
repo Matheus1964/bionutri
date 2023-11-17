@@ -18,9 +18,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center; 
-    padding-left: 30px;
+    padding: 50px;
     background: #ffffff;
-    padding-right: 30px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
 }
 
@@ -262,8 +261,16 @@
        flex-direction: column;
     }
 
-    .entrar button {
-        margin-bottom: 20px;
+    .entrar .botaoFacebook {
+        margin-top: 10px;
+    }
+
+    .ou {
+        padding-top: 0px;
+    }
+
+    .esqueceu {
+        padding-bottom: 5px;
     }
 }
 
