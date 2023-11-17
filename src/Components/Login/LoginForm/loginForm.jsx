@@ -1,63 +1,74 @@
-import { auth, googleProvider } from "../../../Services/firebaseConfig";
-import { Link } from 'react-router-dom'
-import {
-  signInWithPopup,
-} from "firebase/auth";
-import Styles from './loginForm.module.css'
-import Porta from '../../../Assets/Login/porta.png'
-import Logo from '../../../Assets/Login/logo.png'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+/*import { auth, googleProvider } from '../../../Services/firebaseConfig';
+import { signInWithPopup } from 'firebase/auth'; */
+import Styles from './loginForm.module.css';
+import Porta from '../../../Assets/Login/porta.png';
+import Logo from '../../../Assets/Login/logo.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const Auth = () => {
+  const [visible, setVisibility] = useState(false);
 
-  /*
-  const signInWithGoogle = async () => {
+  const usePasswordToggle = () => {
+    const Icon = (
+      <FontAwesomeIcon
+        icon={visible ? faEyeSlash : faEye}
+        onClick={() => setVisibility((visibility) => !visibility)}
+      />
+    );
+
+    const InputType = visible ? 'text' : 'password';
+
+    return [InputType, Icon];
+  };
+
+  const [PasswordInputType, ToggleIcon] = usePasswordToggle();
+
+  /*const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
     } catch (err) {
       console.error(err);
     }
-  }; */
+  };*/
 
   return (
-    <div className={Styles.container}> 
-
+    <div className={Styles.container}>
       <img className={Styles.porta} src={Porta} alt="Pessoa abrindo porta" />
-     
       <div className={Styles.conteudo}>
-
         <img className={Styles.logo} src={Logo} alt="Bionutri Logo" />
-
         <div className={Styles.entrar}>
-          <button /* onClick={signInWithGoogle} */ type="button" className={Styles.botaoGoogle}>
-            Entrar com google
+          <button /*onClick={signInWithGoogle}*/ type="button" className={Styles.botaoGoogle}>
+            Entrar com Google
           </button>
           <button type="button" className={`${Styles.botaoGoogle} ${Styles.botaoFacebook}`}>
             Entrar com Facebook
           </button>
         </div>
-  
         <div className={Styles.login}>
           <p className={Styles.ou}>OU</p>
-          <input placeholder="Login" type="name" maxLength="40" minLength="2" required />
-  
+          <input placeholder="Login" type="text" maxLength="40" minLength="2" required />
           <div className={Styles.conectado}>
-            <label>
-              <input type="checkbox"/>
+            <label className={Styles.checkboxLabel}>
+              <input type="checkbox" />
               Permanecer Conectado
             </label>
-
-         
-            <Link href="#">Esqueceu Sua Senha?</Link>
+            <Link to="#">Esqueceu Sua Senha?</Link>
           </div>
-  
-          <input placeholder="Senha" type="password" maxLength="40" minLength="2" required />
+          <div className={Styles.senha}>
+            <input placeholder="Senha" maxLength="40" minLength="2" required type={PasswordInputType} />
+            <label className={Styles.passwordIcon}>{ToggleIcon}</label>
+          </div>
           <p>
-            Não tem uma conta? <Link href="#">Inscrever-se</Link>
+            Não tem uma conta? <Link to="#">Inscrever-se</Link>
           </p>
           <button className={Styles.iniciar}>Iniciar Sessão</button>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
+
 export default Auth;
