@@ -4,7 +4,7 @@ import React from "react";
 import Home from "../Screens/Home/Home";
 import Nutricionistas from "../Screens/Nutricionistas/Nutricionistas";
 import Contato from '../Screens/Contato/index'
-import Login from '../Components/Login/LoginForm/loginForm'
+import Login from '../Components/Login/Login'
 
 function AppRoutes() {
   return (

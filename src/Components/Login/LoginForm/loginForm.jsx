@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 /*import { auth, googleProvider } from '../../../Services/firebaseConfig';
 import { signInWithPopup } from 'firebase/auth'; */
-import Styles from './loginForm.module.css';
+import Styles from './LoginForm.module.css';
 import Porta from '../../../Assets/Login/porta.png';
 import Logo from '../../../Assets/Login/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
-const Auth = () => {
+const LoginForm = () => {
   const [visible, setVisibility] = useState(false);
 
   const usePasswordToggle = () => {
@@ -71,4 +71,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default LoginForm;
