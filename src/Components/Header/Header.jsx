@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
+import { AuthGoogleContext } from "../../Contexts/authGoogle";
+import React, { useState, useContext } from 'react'
 import HeaderStyle from './Header.module.css'
+import { Link } from 'react-router-dom';
 import Logo from "../../Assets/logo.png"
 import Triangle from "../../Assets/triangle.png"
-import UserIcon from "../../Assets/user-icon.png"
+import aaaaa from "../../Assets/user-icon.png"
 
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true) //mudar para false
+  
   const [userMenuVisible, setUserMenuVisible] = useState(false)
   const consultaRoute = "/consulta"
+  const { signed, SignOut } = useContext(AuthGoogleContext);
+  const { user: userJson } = useContext(AuthGoogleContext);
+  const user = JSON.parse(userJson);
+
+  
 
   function toggleUserMenu() {
     setUserMenuVisible(!userMenuVisible)
@@ -25,11 +32,11 @@ function Header() {
     document.getElementById("mySidenav").style.width = "0"
   }
 
-  const userMenu = isLoggedIn && userMenuVisible && (
+  const userMenu = signed && userMenuVisible && (
     <div class={HeaderStyle.userMenu}>
-      <a href="#">Meus Dados</a>
+      <Link  to="/Perfil">Meus Dados</Link>
       <a href={consultaRoute}>Consultas</a>
-      <a href="#">Sair</a>
+      <a href="#" onClick={SignOut}>Sair</a>
     </div>
   );
 
@@ -55,9 +62,9 @@ function Header() {
           </ul>
         </nav>
         
-        {isLoggedIn ? (
+        {signed ? (
           <div class={HeaderStyle.action} onClick={toggleUserMenu}>
-            <img class={HeaderStyle.userIcon} src={UserIcon}/>
+            <img class={HeaderStyle.userIcon} src={user?.photoURL}/>
             <img class={HeaderStyle.icon} src={Triangle}/>
             {userMenu}
             
@@ -65,7 +72,7 @@ function Header() {
         ) : (
           <div class={HeaderStyle.loginRegister}>
             <ul>
-            <li><a href="#">Login</a></li>
+            <li><a href="Login">Login</a></li>
             <li><a href="#">Registrar</a></li>
           </ul>
           </div>
@@ -78,10 +85,10 @@ function Header() {
         <a href="#">Contato</a>
         <a href="#">Sobre</a>
         <a href="/consulta">Consulta</a>
-        {!isLoggedIn ? 
+        {!signed ? 
         (
           <>
-            <a href="#">Login</a>
+            <a href="Login">Login</a>
             <a href="#">Registrar</a> 
             
           </>)
@@ -97,3 +104,4 @@ function Header() {
 }
 
 export default Header;
+

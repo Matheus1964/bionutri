@@ -1,14 +1,23 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-/*import { auth, googleProvider } from '../../../Services/firebaseConfig';
-import { signInWithPopup } from 'firebase/auth'; */
-import Styles from './LoginForm.module.css';
+import { AuthGoogleContext } from '../../../Contexts/authGoogle'
+
+import Styles from './loginForm.module.css';
 import Porta from '../../../Assets/Login/porta.png';
 import Logo from '../../../Assets/Login/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 const LoginForm = () => {
+  const { signInGoogle, signed } = useContext(AuthGoogleContext)
+
+  function navigate() {
+    window.location.href = "/"
+  }
+
+   async function loginGoogle(){
+    await signInGoogle();
+   }
   const [visible, setVisibility] = useState(false);
 
   const usePasswordToggle = () => {
@@ -25,50 +34,48 @@ const LoginForm = () => {
   };
 
   const [PasswordInputType, ToggleIcon] = usePasswordToggle();
-
-  /*const signInWithGoogle = async () => {
-    try {
-      await signInWithPopup(auth, googleProvider);
-    } catch (err) {
-      console.error(err);
-    }
-  };*/
-
-  return (
-    <div className={Styles.container}>
-      <img className={Styles.porta} src={Porta} alt="Pessoa abrindo porta" />
-      <div className={Styles.conteudo}>
-        <img className={Styles.logo} src={Logo} alt="Bionutri Logo" />
-        <div className={Styles.entrar}>
-          <button /*onClick={signInWithGoogle}*/ type="button" className={Styles.botaoGoogle}>
-            Entrar com Google
-          </button>
-          <button type="button" className={`${Styles.botaoGoogle} ${Styles.botaoFacebook}`}>
-            Entrar com Facebook
-          </button>
-        </div>
-        <div className={Styles.login}>
-          <p className={Styles.ou}>OU</p>
-          <input placeholder="Login" type="text" maxLength="40" minLength="2" required />
-          <div className={Styles.conectado}>
-            <label className={Styles.checkboxLabel}>
-              <input type="checkbox" />
-              Permanecer Conectado
-            </label>
-            <Link className={Styles.esqueceu} to="#">Esqueceu Sua Senha?</Link>
+  if(!signed){
+    return (
+      <div className={Styles.container}>
+        <img className={Styles.porta} src={Porta} alt="Pessoa abrindo porta" />
+        <div className={Styles.conteudo}>
+          <img className={Styles.logo} src={Logo} alt="Bionutri Logo" />
+          <div className={Styles.entrar}>
+            <button type="button" className={Styles.botaoGoogle} onClick={loginGoogle}>
+              Entrar com Google
+            </button>
+            <button type="button" className={`${Styles.botaoGoogle} ${Styles.botaoFacebook}`}>
+              Entrar com Facebook
+            </button>
           </div>
-          <div className={Styles.senha}>
-            <input placeholder="Senha" maxLength="40" minLength="2" required type={PasswordInputType} />
-            <label className={Styles.passwordIcon}>{ToggleIcon}</label>
+          <div className={Styles.login}>
+            <p className={Styles.ou}>OU</p>
+            <input placeholder="Login" type="text" maxLength="40" minLength="2" required />
+            <div className={Styles.conectado}>
+              <label className={Styles.checkboxLabel}>
+                <input type="checkbox" />
+                Permanecer Conectado
+              </label>
+              <Link className={Styles.esqueceu} to="#">Esqueceu Sua Senha?</Link>
+            </div>
+            <div className={Styles.senha}>
+              <input placeholder="Senha" maxLength="40" minLength="2" required type={PasswordInputType} />
+              <label className={Styles.passwordIcon}>{ToggleIcon}</label>
+            </div>
+            <p>
+              Não tem uma conta? <Link to="#">Inscrever-se</Link>
+            </p>
+            <button className={Styles.iniciar}>Iniciar Sessão</button>
           </div>
-          <p>
-            Não tem uma conta? <Link to="#">Inscrever-se</Link>
-          </p>
-          <button className={Styles.iniciar}>Iniciar Sessão</button>
         </div>
       </div>
-    </div>
-  );
+    )
+  } else {
+    return ( 
+      <div>{navigate()}</div>
+    )
+  }
+  
 };
 
 export default LoginForm;

@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React from "react";
+import React, { Fragment } from "react";
 
 import Home from "../Screens/Home/Home";
 import PrivateRoutes from ".";
-import Login from "../Screens/Login/index";
-import Profile from "../Screens/Profile";
-import { Fragment } from "react";
+import Login from "../Screens/Login/Login";
+import Profile from "../Screens/Private/Profile/index";
 
 function AppRoutes() {
   return (

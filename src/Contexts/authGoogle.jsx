@@ -1,8 +1,6 @@
-import { useState } from "react";
+import { useState, createContext, useEffect } from "react";
 import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 import { app } from '../../src/Services/firebaseConfig'
-import { createContext } from "react";
-import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route,} from 'react-router-dom'
 const provider = new GoogleAuthProvider();
 
@@ -13,6 +11,7 @@ export const AuthGoogleContext = createContext({})
 function AuthGoogleProvider ({children}){
   const auth = getAuth(app);
   const [user, setUser] = useState(null)
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
     const loadStoreAuth = () => {
@@ -37,6 +36,7 @@ function AuthGoogleProvider ({children}){
         const token = credential.accessToken;
         const user = result.user;
         setUser(user)
+        setIsLoggedIn(true);
         sessionStorage.setItem("@AuthFirebase:token", token);
         sessionStorage.setItem("@AuthFirebase:user", JSON.stringify(user));
        
@@ -53,10 +53,11 @@ function AuthGoogleProvider ({children}){
       function SignOut(){
         sessionStorage.clear()
         setUser(null);
+        setIsLoggedIn(false);
         
       }
     return(
-      <AuthGoogleContext.Provider value={{ signInGoogle, signed: !!user, user, SignOut }}>
+      <AuthGoogleContext.Provider value={{ signInGoogle, signed: !!user, user, SignOut , isLoggedIn }}>
         {children}
 
       </AuthGoogleContext.Provider>
