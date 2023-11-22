@@ -18,6 +18,8 @@
     display: flex;
     margin: auto;
     width: 90%;
+    justify-content: center;
+    align-items: center;
 }
 
 .container h2 {
@@ -51,7 +53,6 @@
     padding: 15px 60px;
     background-color: var(--green-color);
     color: var(--white-color);
-    margin-right: 40px;
     margin-top: 20px;
     text-align: center;
     border-radius: 20px;
@@ -59,6 +60,7 @@
     cursor: pointer;
     font-size: 20px;
     transition: background-color 0.3s, border-color 0.3s; 
+    margin-bottom: 5px;
 }
 
 .container button:hover {

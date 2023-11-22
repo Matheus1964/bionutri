@@ -1,0 +1,31 @@
+
+.dropdownUfDiv select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  height: 40px;
+  font-size: 14px;
+  background-color: #ccc;
+  color: #4d4c4c;
+  font-weight: bold;
+  width: 70px;
+  margin-bottom: 10px;
+}
+
+.dropdownUfDiv option{
+  background-color: white;
+  font-size: 16px;
+}
+
+
+@media screen and (max-width: 768px){
+  .dropdownUfDiv select {
+    padding: 5px;
+    width: 60px;
+    font-size: 14px;
+  }
+
+  .dropdownUfDiv option{
+    font-size: 14px;
+  }
+}

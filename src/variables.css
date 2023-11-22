@@ -2,5 +2,7 @@
     --purple-color: #6828ED;
     --green-color:#04E376;
     --white-color: #FFFFFF;
+    --gray-color: rgba(92, 92, 92, 0.4); /* TODO: adicionar transparencia */
+    --light-gray-color: #D9D9D9;
   }
   
