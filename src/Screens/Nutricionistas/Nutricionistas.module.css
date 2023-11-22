@@ -106,6 +106,17 @@
   background-color: rgb(64, 63, 143);
 }
 
+.messages {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 250px;
+}
+
+.user {
+  display: flex;
+  flex-direction: row-reverse;
+}
 
 @media screen and (max-width: 768px){
   .content{
