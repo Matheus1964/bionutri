@@ -5,6 +5,7 @@ import  AuthGoogleProvider  from './Contexts/authGoogle';
 
 function App() {
   return (
+    
     <AuthGoogleProvider>
         <AppRoutes />
       </AuthGoogleProvider>

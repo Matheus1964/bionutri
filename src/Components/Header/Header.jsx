@@ -14,7 +14,8 @@ function Header() {
   const { user: userJson } = useContext(AuthGoogleContext);
   const user = JSON.parse(userJson);
 
-  
+  const userRole = user?.email === "bionutripi@gmail.com" || user?.email === "matheusao@unipam.edu.br" ? true : false;
+
 
   function toggleUserMenu() {
     setUserMenuVisible(!userMenuVisible)
@@ -59,6 +60,10 @@ function Header() {
             <li><a href="#">Contato</a></li>
             <li><a href="#">Sobre</a></li>
             <li><a href="#">Consulta</a></li>
+            {
+              userRole &&
+            <li><Link  to="/Adm">Administrador</Link></li>
+            }
           </ul>
         </nav>
         

@@ -110,67 +110,76 @@
 
 .container_chat{
   display: flex;
-  align-items: center;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.322);
-  word-break: break-all;
-  width: 70%;
-  height: 1000px;
   
+  width: 100%;
+  gap: 50px;
 }
 .messages {
-  
   display: flex;
-  overflow-y: auto;  /* Adicione esta linha para habilitar a barra de rolagem vertical */
-  max-height: 800px;
   flex-direction: column;
-  width: 100%;
+  justify-content: flex-end;
+  gap: 50px;
   
+  font-family: Roboto;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-.sentMessage{
+.sentMessage {
   display: flex;
-  
-  margin-bottom: 40px;
-  padding-right: 20px;
-  padding-bottom: 40px;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 500px;
+  height: 150px;
+  flex-shrink: 0;
+  margin-left: auto; /* Agora, define a margem à esquerda para mover para a direita */
+  padding-right: 50px;
   border-radius: 40px;
   background: #98ECAB;
+  color: #000;
   
-  margin-right: auto;
+  font-family: Roboto;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.receivedMessage {
+  display: flex;
+  flex-direction: column;
+  width: 1160px;
+  height: 150px;
+  flex-shrink: 0;
+  margin-right: auto; /* Agora, define a margem à direita para mover para a esquerda */
+  padding-left: 50px;
+  border-radius: 40px;
+  background: #A9BADB;
+  
+  font-family: Roboto;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.testeNome{
   position: relative;
-  width: 700px;
-  direction: rtl;
+  margin-bottom: 20px;
+  top: -40px;
   
 }
 .receivedMessage{
-  padding-bottom: 40px;
-  padding-left: 20px;
-  margin-bottom: 40px;
-  border-radius: 40px;
-  background: #A9BADB;
-  margin-right: auto;
-  width: 700px;
-  
-  
+  color: blue;
 }
-
 .forms{
   display: flex;
   justify-content: center;
-  background-color: white;
   gap: 10px;
   width: 100%;
-  margin-top: auto;
   
 }
-input[type="file"]{
-  display: none;
-}
-
-
 .input_send{
   width: 90%;
   height: 90px;
@@ -187,25 +196,19 @@ input[type="file"]{
   line-height: normal;
   
 }
-
 input::placeholder {
-  padding-left: 50px; /* Ajuste o valor conforme necessÃ¡rio */
+  padding-left: 50px; /* Ajuste o valor conforme necessário */
 }
-
+.teste{
+  background-color: black;
+}
 .botao_chat{
   text-decoration: none;
   outline: none;
   border: none;
   
 }
-.voce{
-  position: relative;
-  bottom: 30px;
-}
-.elea{
-  position: relative;
-  bottom: 30px;
-}
+
 @media screen and (max-width: 768px){
   .content{
     margin: 20px;

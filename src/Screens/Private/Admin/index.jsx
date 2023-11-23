@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react"
-import nutricionistaStyle from './Nutricionistas.module.css'
-import DropdownUf from "../../Components/DropdownUf/DropdownUf"
-import Header from "../../Components/Header/Header"
-import searchIcon from '../../Assets/search.png'
-import Footer from '../../Components/Footer/Footer'
-import Card from "../../Components/Card/Card"
-import arquivo from "./exemplo.js"
-import imagem from '../../Assets/user-icon.png'
+import nutricionistaStyle from '../../Nutricionistas/Nutricionistas.module.css'
+import DropdownUf from "../../../Components/DropdownUf/DropdownUf"
+import Header from "../../../Components/Header/Header"
+import searchIcon from '../../../Assets/search.png'
+import Footer from '../../../Components/Footer/Footer'
+import Card from "../../../Components/Card/Card"
+import arquivo from "../../Nutricionistas/exemplo"
+import imagem from '../../../Assets/user-icon.png'
 import { Pagination } from 'react-bootstrap'
 import { useNavigate } from "react-router-dom"
 
-function Nutricionistas(){
+function Adm(){
   const [selectedUF, setSelectedUF] = useState('');
   const navigate = useNavigate();
 
@@ -27,6 +27,7 @@ function Nutricionistas(){
   useEffect(() => {
     filterNutricionistas()
   }, [selectedUF, currentPage])
+  
 
   function filterNutricionistas() {
     let filtered = selectedUF ? nutricionistasData.filter((nutricionista) => nutricionista.uf === selectedUF)
@@ -47,9 +48,9 @@ function Nutricionistas(){
     const indexOfLast = indexOfFirst + elementsPerPage
     const visibleItems = nutricionistasData.slice(indexOfFirst, indexOfLast)
 
-    const roleNutricionista = visibleItems.filter((nutricionista) => nutricionista.role === 'Nutricionista')
+    const roleAdm = visibleItems.filter((nutricionista) => nutricionista.role === 'Adm')
 
-    return roleNutricionista.map((nutricionista) => {
+    return roleAdm.map((nutricionista) => {
 
       return(
         <Card
@@ -114,27 +115,16 @@ function Nutricionistas(){
   }
 
   return (
+    
     <div>
       <Header/>
       <div class={nutricionistaStyle.content}>
 
         <h1 class={nutricionistaStyle.mainTitle}>
-          Nutricionistas
+          {nutricionistasData[0].nome} Você tem uma Nova Mensagem
+          
         </h1>
           
-        <div class={nutricionistaStyle.divFilter}>
-          <div class={nutricionistaStyle.filterUf}>
-            <span>Filtrar UF</span>
-            <DropdownUf onUfChange={handleUfChange} selectedUf={selectedUF}/>
-          </div>
-          
-
-          <div class={nutricionistaStyle.divBusca}>
-            <input type="text" id="busca" class={nutricionistaStyle.txtBusca} 
-            placeholder="Buscar nutricionista ou local"/>
-            <img src={searchIcon} class={nutricionistaStyle.btnBusca} alt="Buscar"/>
-          </div>
-        </div>
 
         <div class={nutricionistaStyle.lista}>
           {
@@ -147,11 +137,7 @@ function Nutricionistas(){
 
       </div>
       
-      <div class={nutricionistaStyle.paginationDiv}>
-        <Pagination className={nutricionistaStyle.pagination}>
-          {pageItems}
-        </Pagination>
-      </div>
+      
 
     <Footer/>
     </div>
@@ -159,4 +145,4 @@ function Nutricionistas(){
   )
 }
 
-export default Nutricionistas;
+export default Adm;
