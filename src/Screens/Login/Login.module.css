@@ -1,6 +1,8 @@
 .container {
     padding-top: 85px;
     padding-bottom: 25px;
+    margin-top: 5%;
+    margin-bottom: 10%;
 }
 
 .imagem {
@@ -8,4 +10,5 @@
     padding-top: 30px;
     width: 100%;
     z-index: -1;
+    
 }

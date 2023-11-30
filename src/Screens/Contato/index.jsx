@@ -1,30 +1,26 @@
 import './Contato.css'
 import Footer from '../../Components/Footer/Footer'
 import ContatoForm from '../../Components/Contato/ContatoForm'
+import img_contato from '../../Assets/img contato.svg'
 
-
-function Contato(){
-
+function Contato() {
   return (
-    <div>
-      
-      <div className="container contato-div">
-        <h1 className="title">Contato</h1>
-
-        <div className="div-content">
-
-          <div className="column">
-            <ContatoForm/>
-          </div>
-
+    <div className="container">
+      <div>
+        <div className="container_img">
+          <img src={img_contato} alt="" />
         </div>
-            
-      </div>
-      <Footer/>
 
+        <div className="teste_form">
+          <ContatoForm />
+        </div>
+      </div>
+
+      <div className="teste_footer">
+        <Footer />
+      </div>
     </div>
-    
   )
 }
 
-export default Contato;
+export default Contato

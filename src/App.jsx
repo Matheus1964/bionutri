@@ -9,6 +9,7 @@ function App() {
     <AuthGoogleProvider>
         <AppRoutes />
       </AuthGoogleProvider>
+      
   );
 }
 
