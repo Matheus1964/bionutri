@@ -2,7 +2,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center; 
-    align-items: center;   
+    align-items: center; 
+    
 }
 
 .wrapper {
@@ -20,4 +21,7 @@
     height: 60px;
     border: 0.5px solid #3F3D56;
     border-radius: 50%;
+  }
+  .descricao{
+    color: blue;
   }

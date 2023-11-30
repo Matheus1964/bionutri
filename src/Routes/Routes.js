@@ -11,6 +11,7 @@ import { Chat } from '../Screens/Nutricionistas/Chat'
 import Adm from '../Screens/Private/Admin'
 import Header from '../Components/Header/Header'
 import TesteContext from '../Contexts/texteContext'
+import Contato from '../Screens/Contato'
 
 function AppRoutes() {
   const [num, setNum] = useState(0);
@@ -24,8 +25,9 @@ function AppRoutes() {
       <Fragment>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/Contato" element={<Contato />} />
           <Route path="/Login" element={<Login />} />
-          <Route path="/Nutri" element={<Nutri />} />
+          <Route path="/Consulta" element={<Nutri />} />
 
           <Route path="/Chat/:nutriId" element={<PrivateRoutes />}>
             <Route path="/Chat/:nutriId" element={<Chat />} />
