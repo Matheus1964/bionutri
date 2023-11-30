@@ -1,0 +1,229 @@
+.content{
+  margin: 30px;
+  min-height: 100vh;
+}
+
+.mainTitle{
+  text-align: center;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+
+.alignDiv{
+  display: flex;
+  justify-content: space-between;
+}
+
+.divFilter{
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+
+.filterUf{
+  display: flex;
+  flex-direction: column;
+}
+
+.filterUf span{
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.divBusca{
+  border: 1px solid #ccc;
+  background-color: #ccc;
+  border-radius: 6px;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: text;
+  height: 40px;
+  width: 55%;
+  max-width: 900px;
+}
+
+.txtBusca{
+  border: none;
+  background-color: #ccc;
+  padding: 5px 7px;
+  flex: 1;
+  font-size: 16px;
+}
+
+.btnBusca{
+  max-height: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.txtBusca:focus{
+  outline: none;
+}
+
+.lista{
+  margin-top: 30px;
+}
+
+.paginationItem{
+  background-color: rgb(214, 213, 213);
+  border-radius: 5px;
+  border: 1px black solid;
+}
+
+.paginationDiv{
+  margin: 20px 0;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination li {
+  list-style: none;
+  margin: 0 5px;
+}
+
+.pagination li a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 5px;
+}
+
+.pagination li a:hover {
+  background-color: rgb(64, 63, 143);
+}
+
+
+
+.container_chat{
+  display: flex;
+  flex-direction: column;
+  
+  width: 100%;
+  gap: 50px;
+}
+.messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 50px;
+  
+  font-family: Roboto;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.sentMessage {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  width: 500px;
+  height: 150px;
+  flex-shrink: 0;
+  margin-left: auto; /* Agora, define a margem à esquerda para mover para a direita */
+  padding-right: 50px;
+  border-radius: 40px;
+  background: #98ECAB;
+  color: #000;
+  
+  font-family: Roboto;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.receivedMessage {
+  display: flex;
+  flex-direction: column;
+  width: 1160px;
+  height: 150px;
+  flex-shrink: 0;
+  margin-right: auto; /* Agora, define a margem à direita para mover para a esquerda */
+  padding-left: 50px;
+  border-radius: 40px;
+  background: #A9BADB;
+  
+  font-family: Roboto;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.testeNome{
+  position: relative;
+  margin-bottom: 20px;
+  top: -40px;
+  
+}
+.receivedMessage{
+  color: blue;
+}
+.forms{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  
+}
+.input_send{
+  width: 90%;
+  height: 90px;
+  border-radius: 29px;
+  background: #D9D9D9;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  border: none;
+  color: rgba(31, 31, 31, 0.58);
+
+  font-family: Roboto;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  
+}
+input::placeholder {
+  padding-left: 50px; /* Ajuste o valor conforme necessário */
+}
+.teste{
+  background-color: black;
+}
+.botao_chat{
+  text-decoration: none;
+  outline: none;
+  border: none;
+  
+}
+
+@media screen and (max-width: 768px){
+  .content{
+    margin: 20px;
+  }
+
+  .mainTitle{
+    padding-top: 20px;
+  }
+
+  .divFilter{
+    display: block;
+  }
+
+  .divBusca{
+    margin: 20px 0;
+    width: 100%;
+  }
+}

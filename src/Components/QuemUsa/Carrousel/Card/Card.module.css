@@ -1,13 +1,19 @@
 .container {
-    padding-top: 5px;
-    padding-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    
 }
+
+.wrapper {
+    padding-left: 10px; 
+  }
 
 .identidade {
     display: flex;
     align-items: center; 
-   
-  }
+}
   
 .imagem {
     margin-right: 20px; 
@@ -15,4 +21,7 @@
     height: 60px;
     border: 0.5px solid #3F3D56;
     border-radius: 50%;
+  }
+  .descricao{
+    color: blue;
   }

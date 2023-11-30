@@ -1,0 +1,22 @@
+.sobre{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000;
+  margin-bottom: 50px;
+
+text-align: center;
+font-family: Saira;
+
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+.sobre h2{
+  font-size: 30px;
+  font-family: Saira;
+}

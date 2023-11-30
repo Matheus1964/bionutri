@@ -10,6 +10,18 @@ import imagem from "../../Assets/user-icon.png"
 import {Pagination} from "react-bootstrap"
 import unorm from "unorm"
 import debounce from "lodash/debounce"
+import imagem from '../../Assets/user-icon.png'
+import { useNavigate } from "react-router-dom"
+
+function Nutricionistas(){
+  const [selectedUF, setSelectedUF] = useState('');
+  const navigate = useNavigate();
+
+  const nutricionistasData = arquivo;
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const elementsPerPage = 5;
+
 
 function Nutricionistas() {
   const [selectedUF, setSelectedUF] = useState("")
@@ -49,85 +61,62 @@ function Nutricionistas() {
         ? nutricionistasData.filter((nutricionista) => nutricionista.uf === selectedUF)
         : nutricionistasData
 
-    if (searchTerm !== "") {
-      const normalizedSearchTerm = unorm.nfd(searchTerm.toLowerCase()).replace(/[\u0300-\u036f]/g, "")
+    const indexOfFirst = (currentPage - 1) * elementsPerPage;
+    const indexOfLast = indexOfFirst + elementsPerPage;
+    const visibleFilteredItems = filtered.slice(indexOfFirst, indexOfLast);
+    
 
-      filtered = filtered.filter((nutricionista) => {
-        const nomeLower = unorm.nfd(nutricionista.nome.toLowerCase()).replace(/[\u0300-\u036f]/g, "")
-        const cidadeLower = unorm.nfd(nutricionista.cidade.toLowerCase()).replace(/[\u0300-\u036f]/g, "")
-        const especialidadesLower = unorm
-          .nfd(nutricionista.especialidadesNutricao.join(" ").toLowerCase())
-          .replace(/[\u0300-\u036f]/g, "")
-
-        return (
-          nomeLower.includes(normalizedSearchTerm) ||
-          cidadeLower.includes(normalizedSearchTerm) ||
-          especialidadesLower.includes(normalizedSearchTerm)
-        );
-      });
-    }
-
-    setFilteredNutricionistas(filtered)
+    setFilteredNutricionistas(filtered);
+    console.log(filtered)
   }
 
-  function updatePageItems(totalPages) {
-    const newPageItems = []
-  
-    newPageItems.push(
-      <div
-        className={nutricionistaStyle.btnActionPage}
-        onClick={() => handlePageChange(currentPage - 1)}
-      >
-        {"<"}
-      </div>
-    );
-  
-    const screenWidth = window.innerWidth
 
-    let elementsBeforeEllipsis
-    if (screenWidth <= 450) {
-      elementsBeforeEllipsis = 1
-    } else if (screenWidth <= 768) {
-      elementsBeforeEllipsis = 3
-    } else {
-      elementsBeforeEllipsis = 5
-    }
-  
-    for (let page = 1; page <= totalPages; page++) {
-      if (
-        page === 1 ||
-        page === totalPages ||
-        Math.abs(page - currentPage) <= elementsBeforeEllipsis
-      ) {
-        newPageItems.push(
-          <Pagination.Item
-            key={page}
-            onClick={() => handlePageChange(page)}
-            className={nutricionistaStyle.paginationItem}
-            style={{
-              backgroundColor: page === currentPage ? "#6828ED" : "white",
-            }}
-          >
-            {page}
-          </Pagination.Item>
-        );
-      } else if (newPageItems[newPageItems.length - 1] !== "ellipsis") {
-        newPageItems.push("ellipsis")
-      }
-    }
-  
-    newPageItems.push(
-      <div
-        className={nutricionistaStyle.btnActionPage}
-        onClick={() => handlePageChange(currentPage + 1, totalPages)}
-      >
-        {">"}
-      </div>
-    );
-  
-    setPageItems(newPageItems)
+  function renderNotFilteredItems(){
+    const indexOfFirst =(currentPage - 1) * elementsPerPage
+    const indexOfLast = indexOfFirst + elementsPerPage
+    const visibleItems = nutricionistasData.slice(indexOfFirst, indexOfLast)
+
+    return visibleItems.map((nutricionista) => {
+
+      return(
+        <Card
+          key={nutricionista.id}
+          id={nutricionista.id}
+          nome={nutricionista.nome}
+          clinica={nutricionista.clinica}
+          especialidades={nutricionista.especialidadesNutricao.join(', ')}
+          cidade={nutricionista.cidade}
+          uf={nutricionista.uf}
+          localizacao={nutricionista.localizacao}
+          imagemPerfil={imagem}//mudar depois
+          handleClick={() => btnClick(nutricionista.id, nutricionista.nome)}
+        />)
+
+    });
+
   }
-  
+
+  const totalPages = Math.ceil(filteredNutricionistas.length / elementsPerPage);
+  console.log("carregamento de pags ",filteredNutricionistas)
+
+  for (let page = 1; page <= totalPages; page++) {
+    pageItems.push(
+      <Pagination.Item className={nutricionistaStyle.paginationItem}
+        style={{
+        backgroundColor: page === currentPage ? '#6828ED' : 'white',
+      }}
+        key={page}
+        onClick={() => handlePageChange(page)}
+      >
+        {page}
+      </Pagination.Item>
+    );
+  }
+
+  function handleUfChange(uf){
+    setSelectedUF(uf);
+    setCurrentPage(1)
+  };
 
   function renderVisibleItems() {
     const indexOfFirst = (currentPage - 1) * elementsPerPage
@@ -144,12 +133,11 @@ function Nutricionistas() {
         cidade={nutricionista.cidade}
         uf={nutricionista.uf}
         localizacao={nutricionista.localizacao}
-        imagemPerfil={imagem}
+        imagemPerfil={imagem} //mudar depois
         handleClick={btnClick}
-      />
-    ));
+      />)
+    )
   }
-
   function handleUfChange(uf) {
     setSelectedUF(uf);
   }
@@ -159,25 +147,8 @@ function Nutricionistas() {
     setSearchTerm(value.trim())
   }
 
-  useEffect(() => {
-    if (inputSearch) {
-      const handleKeyPress = ({ key }) => {
-        if (key === "Enter") {
-          debouncedSearch();
-        }
-      };
-
-      inputSearch.addEventListener("keyup", handleKeyPress)
-
-      return () => {
-        inputSearch.removeEventListener("keyup", handleKeyPress)
-      }
-    }
-  }, [inputSearch, debouncedSearch])
-
-  function btnClick() {
-    // direcionar para a página de conversa
-    console.log("Clicado")
+  function btnClick(id, nome){
+    navigate(`/chat/${nome}`, {replace: true, state: {id: id, nome: nome}})
   }
 
   return (
@@ -225,6 +196,7 @@ function Nutricionistas() {
       <Footer />
     </div>
   );
+}
 }
 
 export default Nutricionistas;

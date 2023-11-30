@@ -1,0 +1,59 @@
+.container {
+  display: flex;
+
+}
+.conteudo {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  color: #000;
+  width: 100vw;
+
+  text-align: center;
+  font-family: Saira;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.conteudo h1{
+  margin-bottom: 10%;
+}
+.profileDados {
+  margin-top: 10px;
+  margin-left: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items:flex-start;
+  width: 337px;
+}
+.profileDados label {
+  color: #000;
+  text-align: center;
+  font-family: Saira;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.profileDados input {
+  width: 337px;
+  height: 45px;
+  flex-shrink: 0;
+}
+.testee{
+  display: flex;
+  flex-direction: column
+}
+.profile_icon{
+  position: absolute;
+  top: 50%;
+  width: 500px;
+  height: 500px;
+  padding-left: 50%;
+}
+.footerr{
+  display: flex;
+  flex-direction: column;
+}
