@@ -10,7 +10,6 @@ import imagem from "../../Assets/user-icon.png"
 import {Pagination} from "react-bootstrap"
 import unorm from "unorm"
 import debounce from "lodash/debounce"
-import imagem from '../../Assets/user-icon.png'
 import { useNavigate } from "react-router-dom"
 
 function Nutricionistas(){
