@@ -9,7 +9,8 @@ function App() {
     <AuthGoogleProvider>
         <AppRoutes />
       </AuthGoogleProvider>
+      
   );
 }
-//thiago
+
 export default App;

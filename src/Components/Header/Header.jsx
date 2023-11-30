@@ -4,7 +4,6 @@ import HeaderStyle from './Header.module.css'
 import { Link } from 'react-router-dom'
 import Logo from '../../Assets/logo.png'
 import Triangle from '../../Assets/triangle.png'
-import aaaaa from '../../Assets/user-icon.png'
 
 function Header() {
   const [userMenuVisible, setUserMenuVisible] = useState(false)
@@ -12,7 +11,7 @@ function Header() {
   const { signed, SignOut } = useContext(AuthGoogleContext)
   const { user: userJson } = useContext(AuthGoogleContext)
   const user = JSON.parse(userJson)
-
+  console.log(user)
   const userRole =
     user?.email === 'bionutripi@gmail.com' ||
     user?.email === 'matheusao@unipam.edu.br'
@@ -73,7 +72,7 @@ function Header() {
               <Link to="/Contato">Contato</Link>
             </li>
             <li>
-              <a href="#">Sobre</a>
+            <Link to="/Sobre">Sobre</Link>
             </li>
             <li>
               <Link to="/Consulta">Consulta</Link>
@@ -116,7 +115,7 @@ function Header() {
         </a>
         <Link to="/">Início</Link>
         <Link to="/Contato">Contato</Link>
-        <a href="#">Sobre</a>
+        <Link to="/Sobre">Sobre</Link>
         <a href="/consulta">Consulta</a>
         {!signed ? (
           <>

@@ -22,17 +22,14 @@ export const Chat = () => {
   const { state } = useLocation()
   const { user: userJson } = useContext(AuthGoogleContext)
   const user = JSON.parse(userJson)
-  const {contador, setContador}= useState(0);
+
 
   const [messages, setMessages] = useState([])
   const [newMessage, setNewMessage] = useState('')
   const [media, setMedia] = useState(null) // Para armazenar a mídia a ser enviada
   const messagesRef = collection(db, 'messages')
 
-  console.log(user)
-  function handleClick(){
-    setContador(contador+1);
-  }
+
   useEffect(() => {
     const queryMessages = query(
       messagesRef,
@@ -130,10 +127,9 @@ export const Chat = () => {
             />
           </div>
 
-          <button type="submit" className={styles.botao_chat}onClick={handleClick}>
+          <button type="submit" className={styles.botao_chat}>
             <img src={sendIcon} alt="" />
           </button>
-          <h1>{contador}</h1>
         </form>
       </div>
       <Footer />

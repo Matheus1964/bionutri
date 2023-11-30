@@ -18,7 +18,7 @@ function Match() {
           Uma solução pensada para conectar pacientes a nutricionistas
         </p>
         <div className={Styles.botao}>
-          <Link to="">
+          <Link to="/Consulta">
             <button>Encontre um profissional</button>
           </Link>
         </div>

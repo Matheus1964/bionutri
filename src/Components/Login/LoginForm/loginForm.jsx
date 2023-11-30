@@ -32,7 +32,6 @@ const LoginForm = () => {
 
     return [InputType, Icon];
   };
-
   const [PasswordInputType, ToggleIcon] = usePasswordToggle();
   if(!signed){
     return (

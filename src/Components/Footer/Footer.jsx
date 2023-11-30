@@ -1,10 +1,11 @@
 import './Footer.css'
 import React from 'react'
 
-import Youtube_logo from '../../Assets/youtube_icon.svg'
-import Facebook_logo from '../../Assets/fb_social_icon.svg'
-import Instagram_logo  from '../../Assets/instagram_icon.svg'
-import Tiktok_logo  from '../../Assets/tik_tok_icon.svg'
+
+import Facebook_logo from '../../Assets/IconFacebook.svg'
+import Instagram_logo  from '../../Assets/IconInstagram.svg'
+import Tiktok_logo  from '../../Assets/IconTikT.svg'
+import IconYoutube from '../../Assets/IconYoutube.svg'
 
 const youtube_link = "https://www.youtube.com/"
 const facebook_link = "https://web.facebook.com/"
@@ -21,7 +22,7 @@ function Footer() {
             <div className="socialmedia">
               <p>
                 <a href={youtube_link} target="_blank"> 
-                  <img src={Youtube_logo} alt="" className='icon'/>
+                  <img src={IconYoutube} alt="" className='icon'/>
                 </a>
               </p>
               <p>
